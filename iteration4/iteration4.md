@@ -46,9 +46,9 @@
 
 
 !SLIDE small
-# Defaults #####################################################################
+# Simplified incremental development ###########################################
 
-## Default values for incremental development
+## Add extra parameters to methods as you get to know more
 
 	@@@ ruby
 	# No match and no actions by default

@@ -16,15 +16,15 @@
 * In order to test repeater-hub program, we need one switch and at least three hosts
 * => How can we build a test environment? 
 
-* The sequence looks surprisingly complex despite the simplicity of repeater-hub functions (== flooding)
-* => How can we test each arrow in the sequence?
+* The sequence looks surprisingly complex despite the simplicity of repeater-hub functionality (== flooding)
+* => How can we test each arrow in the diagram?
 
 
 !SLIDE bullets small incremental
 # Trema framework ##############################################################
 
 * <b>Network DSL</b>
-* Build emulation envrionments in your laptop and deploy onto real environments
+* Build emulation envrionment in your laptop
 
 * <b>Test framework</b>
 * Describe and run unittests of each arrow in execution sequence

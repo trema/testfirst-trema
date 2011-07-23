@@ -38,7 +38,7 @@
 	
 	#=> FAIL ("RepeaterHub" is now known)
 
-* No problem, because we did't implemented the class yet.
+* No problem, because we did't implement the class yet.
 * Let's add some code just enough to pass the test.
 
 
@@ -97,6 +97,6 @@
 # Why Test First? ##############################################################
 
 * OpenFlow programming is complicated, because it's a sort of distributed programming
-* Unit-testing is helpful expecially for such complicated problem
+* Unit-testing is helpful expecially for such a complicated problem
 * Rubyists love tests and are used to it well
 * => Trema offers the OpenFlow extension of RSpec (explained later)

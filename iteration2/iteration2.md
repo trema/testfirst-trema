@@ -152,7 +152,7 @@
 	  # link("peer1", "peer2").method
 	}
 
-* Components defined in the network block (vswitch, vhost and link) are wrapped as a Ruby object in the "When" block.
+* Components defined in the network block (vswitch, vhost and link) are wrapped as  Ruby objects in the "When" block.
 * In the "When" block, you can invoke any  method of these wrapped objects
 
 
@@ -302,8 +302,8 @@
 !SLIDE bullets small incremental
 # ... Stuck? ###################################################################
 
-* Let's divide into small tests and implement one-by-one
-* For now, mark this test as "pending" and give the least priority
+* Let's divide into smaller tests and implement one-by-one
+* For now, mark this test as "pending" and give it the least priority
 
 
 !SLIDE smaller

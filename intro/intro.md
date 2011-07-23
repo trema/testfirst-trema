@@ -34,15 +34,15 @@
 
 * How to develop in Trema
 * Designing, testing and debugging using Trema framework
-* <b>"Differences with NOX, Beacon and others?"</b>
+* <b>"Different from NOX, Beacon and others?"</b>
 
 
 !SLIDE bullets incremental small
 # Why Trema? ###################################################################
 
-* ... because we use C and Ruby
-* (NOX = C++, Beacon = Java)
-* That's the main reason!
+* ... because we write it in C and Ruby
+* (NOX written in C++, Beacon written in Java)
+* This is the main reason!
 
 
 !SLIDE bullets small
@@ -62,7 +62,7 @@
 * virtual hosts: phost (pseudo host)
 * virtual links: vlink (ip command of Linux)
 
-## You can construct your own topology using Ruby DSL
+## You can construct your own topology using Ruby DSL (Domain Specific Language)
 
 
 !SLIDE bullets small
@@ -113,7 +113,7 @@
 * Lots of switches, hosts, and links where
 * each runs in its own memory space (in a separate hardware or a process),
 * while changing its own state (flow table, stats etc.),
-* and communicating intricately each other
+* and communicating intricately with each other
 * <b>=> Need an aid from programming frameworks and tools!</b>
 
 
@@ -129,8 +129,8 @@
 !SLIDE bullets small
 # Test framework (Ruby only) ###################################################
 
-* Write network environment and controller test using Ruby
-* Setup and teardown of network envrionment
+* Write network environment and controller, test using Ruby
+* Setup and teardown of network environment
 * Assertions and expectations over switches, hosts and your controller
 * Fault injection such as intentional link-down, latencies and packet-drops etc.
 
@@ -141,7 +141,7 @@
 	@@@ ruby
 	# Test example: A unittest of MyController controller
 	#
-	#   The following tests that contoller's packet_in handler
+	#   The following tests that controller's packet_in handler
 	#   is invoked when a packet is arrived.
 	
 	network { # Setup test environment
@@ -162,7 +162,7 @@
 
 
 !SLIDE bullets small
-# Features summary #############################################################
+# Summary ######################################################################
 
 ## The integration of network emulation and test framework
 ## using Ruby enables developers to apply "well-known"

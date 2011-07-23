@@ -13,7 +13,7 @@
 
 * Test framework integrated with virtual network environment
 * Incremental development with test-first
-* Clean and brief coding using Ruby
+* Clean and concise coding using Ruby
 * More samples: src/examples/\*\*/*.rb 
 
 
