@@ -1,25 +1,25 @@
 !SLIDE master
-# イテレーション #1 #############################################################
-## "RepeaterHub クラスを作る"
+# Iteration #1 #################################################################
+## "Defining RepeaterHub class"
 
 
 !SLIDE bullets small
-# 最初の一歩 ###################################################################
+# The first step ###############################################################
 
 	@@@ ruby
 	# ./spec/repeater-hub_spec.rb
 	
 	
-	# テスト用ヘルパーライブラリの読み込み
+	# load helper libraries for testing
 	require File.join(File.dirname(__FILE__), "spec_helper")
 	
 	
 	describe RepeaterHub do
-	  # ここにリピータハブが持つべき「機能」を書くと、
-	  # 機能テストが実行される
+	  # Write the spec description of repeater hub here
+	  # The spec is executed as unittest
 	end
 
-* ※ 細かい文法は後で説明します
+* NOTE: syntactic details are explained later
 
 
 !SLIDE commandline bullets incremental small
@@ -38,18 +38,18 @@
 	
 	#=> FAIL ("RepeaterHub" is now known)
 
-* 失敗は予想通り (まだ何も実装していないし)
-* テストを通す最低限の実装を追加しよう
+* No problem, because we did't implemented the class yet.
+* Let's add some code just enough to pass the test.
 
 
 !SLIDE small
-# テストを通すための修正 ########################################################
+# Changes to pass the test #####################################################
 
 	@@@ ruby
 	require File.join( File.dirname( __FILE__ ), "spec_helper" )
 	
 	
-	# 空のクラス定義を追加し、NameError が起こらないようにする
+	# Add an empty class definition
 	class RepeaterHub
 	end
 	
@@ -59,7 +59,7 @@
 
 
 !SLIDE commandline bullets small
-# ふたたびテスト ################################################################
+# Test again! ##################################################################
 
 	@@@ commandline
 	$ rspec -fs -c spec/repeater-hub_spec.rb 
@@ -71,22 +71,32 @@
 	
 	#=> SUCCESS
 
-* RepeaterHub とテストのひながたができた
-* イテレーション #1 終了
+* We got the template of both RepeaterHub class and its test
+* Successfully completed iteration #1
 
 
-!SLIDE bullets incremental small
+!SLIDE bullets small
 # RSpec ########################################################################
 
-* Ruby の標準的なユニットテストフレームワーク
-* Rails など有名プロジェクトで採用
-* 読みやすいテスト DSL (後述)
-* describe "クラス名" do ... end にクラスの機能 (= スペック) を記述
+	@@@ ruby
+	# The spec of Car class
+	describe Car do
+	  car = Car.new
+	  car.should respond_to(:run)
+	  car.should respond_to(:stop)
+	  car.should have(4).wheels
+	end
+
+* The de facto standard for unit test framework for Ruby
+* Used in Rails and other well-known products
+* Human-readable test DSL and its output (explained later)
+
 
 
 !SLIDE bullets small incremental
 # Why Test First? ##############################################################
 
-* 複雑なプログラミングにはテストによるインクリメンタルな開発が有効
-* Ruby プログラマはテストファーストが好き (Test::Unit, RSpec etc.)
-* Trema は RSpec に OpenFlow 拡張を追加
+* OpenFlow programming is complicated, because it's a sort of distributed programming
+* Unit-testing is helpful expecially for such complicated problem
+* Rubyists love tests and are used to it well
+* => Trema offers the OpenFlow extension of RSpec (explained later)
