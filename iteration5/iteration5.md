@@ -1,12 +1,12 @@
 !SLIDE master
-# イテレーション #5 #################################################################
+# Iteration #5 #################################################################
 ## "Packet-out"
 
 
 !SLIDE small
-# すべてのホストにパケットが届く? #########################################################
+# Again, "flooding packets" test ###############################################
 
-## pending にしていたテストを復活
+## Remove "pending"
 
 	@@@ ruby
 	describe "host" do
@@ -22,7 +22,7 @@
 
 
 !SLIDE smaller
-# パケットアウトしよう #################################################################
+# Let's packet_out #############################################################
 
 	@@@ ruby
 	class RepeaterHub < Trema::Controller
@@ -32,7 +32,7 @@
 	      :match => ExactMatch.from(message),
 	      :actions => Trema::ActionOutput.new(OFPP_FLOOD)
 	    )
-	    send_packet_out( # 追加
+	    send_packet_out( # Add
 	      datapath_id,
 	      :packet_in => message,
 	      :actions => Trema::ActionOutput.new(OFPP_FLOOD)
@@ -44,7 +44,7 @@
 
 
 !SLIDE small
-# パケットアウト API ################################################################
+# Packet-out API ###############################################################
 
 	@@@ ruby
 	send_packet_out(
@@ -75,4 +75,4 @@
 
 
 !SLIDE master
-# できた! (?) ####################################################################
+# That's all? ##################################################################
