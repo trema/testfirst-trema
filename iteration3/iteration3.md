@@ -1,5 +1,5 @@
 !SLIDE master
-# イテレーション #3 #############################################################
+# Iteration #3 #################################################################
 ## "Packet-in"
 
 
@@ -9,13 +9,13 @@
 
 
 !SLIDE bullets small incremental
-# テストの詳細化 ################################################################
+# Breakdown ####################################################################
 
-* <b>"packet_in メッセージがコントローラに届く"</b>
+* <b>"RepeaterHub should receive a packet_in message"</b>
 * ==
-* スイッチ 1 台とホストが 3 あったとき (<i>Given</i>)、
-* ホスト 1 が ホスト 2 にパケットを送ると (<i>When</i>)、
-* コントローラにスイッチからの packet_in が届く (<i>Then</i>)
+* <i>Given</i>: one switch, and three hosts are connected to it
+* <i>When</i>: Host #1 sends a packet to host #2
+* <i>Then</i>: the packet_in message should be delivered to the controller
 
 
 !SLIDE smaller
@@ -27,7 +27,9 @@
 	    network {
 	      # ...
 	    }.run(RepeaterHub) {
-	      # スイッチ 0xabc から packet_in メッセージが一度だけ届くはず
+	      # Expectation:
+	      #  packet_in message from 0xabc should be delivered to
+	      #  the controller only once
 	      controller("RepeaterHub").should_receive(:packet_in).with do |dpid, m|
 	        dpid.should == 0xabc
 	      end
@@ -41,7 +43,7 @@
 
 
 !SLIDE bullets small
-# メッセージハンドラ ############################################################
+# Message handlers ############################################################
 
 * Controller#packet_in(datapath_id, message)
 * Controller#flow_removed(datapath_id, message)
@@ -49,7 +51,7 @@
 * Controller#port_status(datapath_id, message)
 * Controller#stats_reply(datapath_id, message)
 * Controller#openflow_error(datapath_id, message)
-* src/examples/dumper.rb を参照
+* (See src/examples/dumper.rb for full list)
 
 
 !SLIDE smaller
@@ -57,11 +59,12 @@
 
 	@@@ ruby
 	describe RepeaterHub do
-	  around do |example|  # 共通処理をここに書く
+	  # common setup here
+	  around do |example|  # `example' is binded to each "it" block
 	    network {
 	      ...
 	    }.run(RepeaterHub) {
-	      example.run  # テストの実行
+	      example.run  # run "it" block
 	    }
 	  end
 	
@@ -76,7 +79,7 @@
 	  it "should flood incoming packets to every other port" do
 	    send_packets "host1", "host2"
 	
-	    pending( "あとで実装する" )
+	    pending("Implement later")
 	    vhost("host2").stats(:rx).should have(1).packets
 	    vhost("host3").stats(:rx).should have(1).packets
 	  end
