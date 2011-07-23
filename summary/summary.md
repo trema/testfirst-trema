@@ -1,21 +1,21 @@
-!SLIDE bullets small incremental
-# やりのこしたこと ###################################################################
+!SLIDE bullets small
+# Few more tests left to do ####################################################
 
-* 二つ目以降のパケットで packet_in が起きない
-* host2 や host3 からパケット打った場合
-* パケット 100 発打って全部届くか
-* フルバージョンはこちら
+* Send packets from host2 or host3
+* Send many packets and receive them all (stress test)
+* Subsequent packets with the same flow does not cause another packet_in
+* Full version:
 * [src/examples/repeater_hub/repeater-hub_spec.rb](https://github.com/trema/trema/blob/master/src/examples/repeater_hub/repeater-hub_spec.rb)
 
 
 !SLIDE bullets small incremental
-# まとめ #########################################################################
+# Summary #########################################################################
 
-* 仮想ネットワーク環境と統合されたテストフレームワーク
-* テストファーストによるインクリメンタルな開発
-* Ruby による簡潔な記述
-* サンプルはこちら: src/examples/\*\*/*.rb 
+* Test framework integrated with virtual network environment
+* Incremental development with test-first
+* Clean and brief coding using Ruby
+* More samples: src/examples/\*\*/*.rb 
 
 
-!SLIDE 
-# 質問? #########################################################################
+!SLIDE
+# Questions? ###################################################################
