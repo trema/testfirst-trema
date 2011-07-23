@@ -8,7 +8,7 @@
 * [src/examples/repeater_hub/repeater-hub_spec.rb](https://github.com/trema/trema/blob/master/src/examples/repeater_hub/repeater-hub_spec.rb)
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # Summary #########################################################################
 
 * Test framework integrated with virtual network environment

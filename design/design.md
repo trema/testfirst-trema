@@ -10,7 +10,7 @@
 ![sequence diagram](sequence.jpg "sequence diagram")
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # Analysis #####################################################################
 
 * In order to test repeater-hub program, we need one switch and at least three hosts
@@ -20,7 +20,7 @@
 * => How can we test each arrow in the diagram?
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # Trema framework ##############################################################
 
 * <b>Network DSL</b>

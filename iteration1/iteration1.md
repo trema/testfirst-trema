@@ -22,7 +22,7 @@
 * NOTE: syntactic details are explained later
 
 
-!SLIDE commandline bullets incremental small
+!SLIDE commandline bullets small
 # Test First ###################################################################
 
 	@@@ commandline
@@ -93,7 +93,7 @@
 
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # Why Test First? ##############################################################
 
 * OpenFlow programming is complicated, because it's a sort of distributed programming

@@ -1,6 +1,6 @@
 !SLIDE center
 # Trema Tutorial ###############################################################
-## Test-first openflow programming with Trema
+## Test-first OpenFlow programming with Trema
 
 <br />
 
@@ -9,7 +9,7 @@
 
 <br />
 
-## 6/9/2011
+## 7/29/2011
 
 <br />
 <br />
@@ -17,17 +17,17 @@
 ![Trema logo](trema.png)
 
 
-!SLIDE bullets incremental small
+!SLIDE bullets small
 # My personal CV  ##############################################################
 
 * Many years of exeperience in HPC and middleware (Satoshi MATSUOKA Lab. @ Tokyo Tech)
-* Only a few months of experience in OpenFlow (Trema)
 * Keywords: MPI, Cluster, Grid, Cloud, Super Computing, Top500, TSUBAME @ Tokyo Tech
+* Only a few months of experience in OpenFlow (Trema)
 * Interests: Programming systems, agile and software testing in Ruby and C
 
 
 
-!SLIDE bullets incremental small
+!SLIDE bullets small
 # Today's Goal #################################################################
 
 ## Introduction to Trema with hands-on session
@@ -37,11 +37,11 @@
 * <b>"Different from NOX, Beacon and others?"</b>
 
 
-!SLIDE bullets incremental small
+!SLIDE bullets small
 # Why Trema? ###################################################################
 
 * ... because we write it in C and Ruby
-* (NOX written in C++, Beacon written in Java)
+* (NOX written in C++ and Python, Beacon written in Java)
 * This is the main reason!
 
 
@@ -107,7 +107,7 @@
 ![Network Mess](network_mess.png "Network Mess")
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # OpenFlow == Distributed programming ##########################################
 
 * Lots of switches, hosts, and links where

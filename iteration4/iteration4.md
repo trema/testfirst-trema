@@ -8,7 +8,7 @@
 ![TODO](todo.jpg "TODO")
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # Breakdown ####################################################################
 
 * <b>"Controller should send a flow_mod message"</b>

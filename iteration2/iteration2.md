@@ -63,7 +63,7 @@
 * You can get a human-readable spec output by running RSpec scripts
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # Breakdown ####################################################################
 
 * <b>"Controller should flood incoming packets to every other port"</b>
@@ -299,7 +299,7 @@
 	#        got: 0 (using ==)
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # ... Stuck? ###################################################################
 
 * Let's divide into smaller tests and implement one-by-one

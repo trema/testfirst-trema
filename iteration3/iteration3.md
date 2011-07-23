@@ -8,7 +8,7 @@
 ![TODO](todo.jpg "TODO")
 
 
-!SLIDE bullets small incremental
+!SLIDE bullets small
 # Breakdown ####################################################################
 
 * <b>"RepeaterHub should receive a packet_in message"</b>
