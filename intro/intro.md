@@ -21,9 +21,10 @@
 # My personal CV  ##############################################################
 
 * Many years of exeperience in HPC and middleware (Satoshi MATSUOKA Lab. @ Tokyo Tech)
+* Only a few months of experience in OpenFlow (Trema)
 * Keywords: MPI, Cluster, Grid, Cloud, Super Computing, Top500, TSUBAME @ Tokyo Tech
 * Interests: Programming systems, agile and software testing in Ruby and C
-* Only a few months of experience in OpenFlow (Trema)
+
 
 
 !SLIDE bullets incremental small
@@ -41,7 +42,7 @@
 
 * ... because we use C and Ruby
 * (NOX = C++, Beacon = Java)
-* This is the main reason!
+* That's the main reason!
 
 
 !SLIDE bullets small
@@ -49,14 +50,14 @@
 
 * Hard to setup execution environments
 * (Lots of hardware switches, hosts, and cables...)
-* => Development environment in a box? (e.g., mininet)
-* => Trema offers a similar emulation environment (described later)
+* Development environment in a box? (e.g., mininet)
+* => Trema offers a similar emulation environment
 
 
 !SLIDE bullets small
 # Network emulation ############################################################
 
-* Emulated execution environment in your laptop based on:
+* Emulated execution environment in your laptop made by:
 * virtual switches: Open vSwitch
 * virtual hosts: phost (pseudo host)
 * virtual links: vlink (ip command of Linux)
@@ -166,4 +167,4 @@
 ## The integration of network emulation and test framework
 ## using Ruby enables developers to apply "well-known"
 ## testing techniques such as mocks, stubs and expectations
-## to OpenFlow programming (== distributed programming).
+## to OpenFlow programming
