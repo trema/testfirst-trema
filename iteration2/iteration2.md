@@ -1,22 +1,24 @@
 !SLIDE
-# イテレーション #2 #############################################################
-## "すべてのポートにパケットを送る"
+# Iteration #2 #################################################################
+## "Flood incoming packets to every other port"
 
 
-!SLIDE small
-# さっそくテスト ################################################################
+!SLIDE bullets small
+# Let's write down unit tests ##################################################
 
-## あるポートに届いたパケットが他のすべてのポートに送られる
+## You can describe the flooding feature of RepeaterHub as follows:
 
 	@@@ ruby
 	describe RepeaterHub do
-	  # it == RepeaterHub のインスタンス
 	  it "should flood incoming packets to every other port"
 	end
 
+* "it" == an instance of RepeaterHub
+* It is still just a placeholder, because the body of this feature is not written yet.
+
 
 !SLIDE commandline small
-# 実行 ##########################################################################
+# Run ##########################################################################
 
 	@@@ commandline
 	$ rspec -fs -c spec/repeater-hub_spec.rb 
@@ -56,18 +58,19 @@
 	#     should not equal to "Hello Frinfon"
 
 
-* それぞれの it は機能ひとつひとつに対応
-* ブロック内に機能のテストを書く
+* Each "it" corresponds to a feature
+* Test codes within the "it" block
+* You can get a human-readable spec output by running RSpec scripts
 
 
 !SLIDE bullets small incremental
-# テストの詳細化 ################################################################
+# Breakdown ####################################################################
 
-* <b>"届いたパケットが他のすべてのポートにも届く"</b>
+* <b>"Controller should flood incoming packets to every other port"</b>
 * ==
-* スイッチ 1 台とホストが 3 あったとき (<i>Given</i>)、
-* ホスト 1 が ホスト 2 にパケットを送ると (<i>When</i>)、
-* ホスト 2 と ホスト 3 にパケットが届く (<i>Then</i>)
+* <i>Given</i>: one switch, and three hosts are connected to it
+* <i>When</i>: Host #1 sends a packet to host #2
+* <i>Then</i>: Host #2 and #3 should receive the packet
 
 
 !SLIDE small
@@ -76,16 +79,18 @@
 	@@@ ruby
 	describe RepeaterHub do
 	  it "should flood incoming packets to every other port" do
+
+	    # ************** Given **************
 	    network {
-	      # スイッチ 1 台
+	      # A switch
 	      vswitch("switch") { dpid "0xabc" }
 
-	      # ホスト 3 台
+	      # Three hosts
 	      vhost("host1") { promisc "on" }
 	      vhost("host2") { promisc "on" }
 	      vhost("host3") { promisc "on" }
-	
-	      # ホストをスイッチにつなぐ
+
+	      # Connect these hosts to the switch
 	      link "switch", "host1"
 	      link "switch", "host2"
 	      link "switch", "host3"
@@ -93,21 +98,25 @@
 	  end
 	end
 
+## Note that the syntax is fully compatible with Trema network DSL
+
 
 !SLIDE small
-# ネットワーク DSL ##############################################################
+# Network DSL for RSpec ########################################################
 
 	@@@ ruby
-	# 以下に定義するネットワークエミュレーション環境を作る
+	#
+	# Describe test environment in network { ... } block
+	#
 	network {
-	  # 仮想スイッチ
-	  vswitch("名前") { オプション }
+	  # Virtual switches
+	  vswitch("name") { options }
 	
-	  # 仮想ホスト
-	  vhost("名前") { オプション }
+	  # Virtual hosts
+	  vhost("name") { options }
 	
-	  # 仮想リンク
-	  link "ピア#1", "ピア#2"
+	  # Virtual links
+	  link "peer#1", "peer#2"
 	}
 
 
@@ -117,55 +126,58 @@
 	@@@ ruby
 	describe RepeaterHub do
 	  it "should flood incoming packets to every other port" do
-	    network {
-	      # ...
-	    }.run(RepeaterHub) {
-	      # 上に定義したネットワーク上で RepeaterHub を起動
 	
-	      # host1 から host2 にテストパケットを送る
+	    # ************** Given **************
+	    network {
+	      ...
+	
+	    # ************** When **************
+	    }.run(RepeaterHub) { # Run a RepeaterHub in the Given network
+	      # Host #1 sends a packet to host #2
 	      vhost("host1").send_packet "host2"
 	    }
 	  end
 	end
 
 
-!SLIDE small
-# ネットワーク DSL ##############################################################
+!SLIDE bullets small
+# "When" API ###################################################################
 
 	@@@ ruby
 	network {
-	  # ネットワーク定義
+	  # ...
 	}.run(ControllerClass) {
-	  # "When"でやることをここに書く
-	  # 
-	  # vswitch("名前").メソッド
-	  # vhost("名前").メソッド
-	  # link("ピア1", "ピア2").メソッド
+	  # vswitch("name").method
+	  # vhost("name").method
+	  # link("peer1", "peer2").method
 	}
+
+* Components defined in the network block (vswitch, vhost and link) are wrapped as a Ruby object in the "When" block.
+* In the "When" block, you can invoke any  method of these wrapped objects
 
 
 !SLIDE small
-# When の例 ####################################################################
+# "When" Example ###############################################################
 
 	@@@ ruby
-	# host1 から host2 に 1000 個のテストパケットを送信
+	# Send 1,000 packets from host1 to host2
 	vhost("host1").send_packet "host2", :n_pkts => 1000
 	
-	# host1 から host2 に pps = 10 で 5 秒間テストパケットを送信
+	# Send packets from host1 to host2 for 5 seconds with pps = 10
 	vhost("host1").send_packet "host2", :pps => 10, :duration => 5
 	
-	# (そのほかのオプションは ./trema help send_packets を参照)
+	# (Other options are also available "./trema help send_packets")
 	
 	
-	# host1 <=> host2 間のリンクをダウン
+	# Fault injection
 	link("host1","host2").down
-	
-	# host1 <=> host2 間のリンクをアップ
 	link("host1","host2").up
+	
+	# Etc, etc...
 
 
 !SLIDE commandline small
-# テスト #######################################################################
+# Test result ##################################################################
 
 	@@@ commandline
 	$ rspec -fs -c spec/repeater-hub_spec.rb 
@@ -189,10 +201,10 @@
 
 
 !SLIDE small
-# 修正 #########################################################################
+# Quick fix ####################################################################
 
 	@@@ ruby
-	# Trema::Controller クラスを継承	
+	# Inherit from Trema::Controller class
 	class RepeaterHub < Trema::Controller
 	end
 	
@@ -217,12 +229,16 @@
 	@@@ ruby
 	describe RepeaterHub do
 	  it "should flood incoming packets to every other port" do
+	
+	    # ************** Given **************
 	    network {
 	      # ...
+	
+	    # ************** When **************
 	    }.run(RepeaterHub) {
 	      vhost("host1").send_packet "host2"
-	
-	      # テスト: host2 と host3 がパケットを 1 つずつ受け取るはず
+
+	    # ************** Then **************
 	      vhost("host2").stats(:rx).should have(1).packets
 	      vhost("host3").stats(:rx).should have(1).packets
 	    }
@@ -231,7 +247,7 @@
 
 
 !SLIDE commandline small
-# テスト ########################################################################
+# Run ##########################################################################
 
 	@@@ commandline
 	$ rspec -fs -c spec/repeater-hub_spec.rb 
@@ -284,11 +300,10 @@
 
 
 !SLIDE bullets small incremental
-# 計画の修正 ####################################################################
+# ... Stuck? ###################################################################
 
-* ...詰まった
-* ステップに分けて順に実装しよう
-* とりあえずこのテストは pending にする
+* Let's divide into small tests and implement one-by-one
+* For now, mark this test as "pending" and give the least priority
 
 
 !SLIDE smaller
@@ -302,8 +317,8 @@
 	    }.run(RepeaterHub) {
 	      send_packets "host1", "host2"
 	
-	      # 「あとでやる」マークをつける
-	      pending( "あとで実装する" )
+	      # mark as pending
+	      pending("Implement later")
 	
 	      vhost("host2").stats(:rx).should have(1).packets
 	      vhost("host3").stats(:rx).should have(1).packets
@@ -313,7 +328,7 @@
 
 
 !SLIDE commandline small
-# あとまわし ####################################################################
+# Run ##########################################################################
 
 	@@@ commandline
 	$ rspec -fs -c spec/repeater-hub_spec.rb 
@@ -323,7 +338,7 @@
 	
 	Pending:
 	  RepeaterHub should flood incoming packets to every other port
-	    # あとで実装する
+	    # Implement later
 	    # ./spec/repeater-hub_spec.rb:10
 	
 	Finished in 3.99 seconds
