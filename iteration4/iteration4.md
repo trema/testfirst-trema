@@ -1,5 +1,5 @@
 !SLIDE master
-# イテレーション #4 #############################################################
+# Iteration #4 #################################################################
 ## "Flow-mod"
 
 
@@ -9,17 +9,17 @@
 
 
 !SLIDE bullets small incremental
-# テストの詳細化 ################################################################
+# Breakdown ####################################################################
 
-* <b>"コントローラが flow_mod を打つ"</b>
+* <b>"Controller should send a flow_mod message"</b>
 * ==
-* スイッチ 1 台とホストが 3 あったとき (<i>Given</i>)、
-* ホスト 1 が ホスト 2 にパケットを送ると (<i>When</i>)、
-* コントローラがスイッチに flow_mod を打つ (<i>Then</i>)
+* <i>Given</i>: one switch, and three hosts are connected to it
+* <i>When</i>: Host #1 sends a packet to host #2
+* <i>Then</i>: the controller sends a flow_mod message to the switch
 
 
 !SLIDE smaller
-# わざと失敗 ###################################################################
+# Test #########################################################################
 
 	@@@ ruby
 	it "should send a flow_mod message" do
@@ -32,12 +32,12 @@
 
 
 !SLIDE small
-# flow-mod を打つ ##############################################################
+# Sending a flow-mod ###########################################################
 
 	@@@ ruby
 	class RepeaterHub < Trema::Controller
 	  def packet_in datapath_id, message
-	    # 空の flow_mod (マッチ無し、アクション無し)
+	    # An empty flow_mod (no match, no actions)
 	    send_flow_mod_add datapath_id
 	  end
 	end
@@ -46,34 +46,32 @@
 
 
 !SLIDE small
-# デフォルト引数 ################################################################
+# Defaults #####################################################################
 
-## 最初からたくさん書かなくていいためのデフォルト値
+## Default values for incremental development
 
 	@@@ ruby
-	# デフォルトでマッチ無し、アクション無し
+	# No match and no actions by default
 	send_flow_mod_add datapath_id
 	
-	# マッチを指定
+	# Add a match
 	send_flow_mod_add datapath_id, :match => match1
 	
-	# アクションも指定
+	# Add actions
 	send_flow_mod_add datapath_id,
 	                  :match => match1, :actions => [act1, act2]
 	
-	# idle_timeout も指定 (デフォルト = 0)
+	# Set idle_timeout (default = 0)
 	send_flow_mod_add datapath_id,
 	                  :idle_timeout = 60,
 	                  :match => match1, :actions => [act1, act2]
 
-## 詳しくは Trema Ruby API を参照
-
 
 !SLIDE small
-# フローエントリ数を確認 ########################################################
+# Test the number of flow entries ##############################################
 
 	@@@ ruby
-	# テスト対象はスイッチ
+	# Testee is the switch
 	describe "switch" do
 	  it "should have one flow entry" do
 	    send_packets "host1", "host2"
@@ -86,7 +84,7 @@
 
 
 !SLIDE small
-# フローエントリの中身を確認 #####################################################
+# Flow-entry property ##########################################################
 
 	@@@ ruby
 	describe "switch" do
@@ -107,7 +105,7 @@
 
 
 !SLIDE smaller
-# アクションを指定する ##########################################################
+# Add actions ##################################################################
 
 	@@@ ruby
 	def packet_in message
@@ -126,7 +124,7 @@
 
 
 !SLIDE smaller
-# 壊れたテストの修正 ############################################################
+# Fix broken test ##############################################################
 
 	@@@ ruby
 	it "should send a flow_mod message" do
@@ -140,7 +138,7 @@
 
 
 !SLIDE smaller
-# フローエントリの中身を確認 #####################################################
+# Flow-entry property ##########################################################
 
 	@@@ ruby
 	  vhost("host1") { promisc "on"; ip "192.168.0.1" }
@@ -169,7 +167,7 @@
 
 
 !SLIDE small
-# マッチ構造体を設定 ############################################################
+# Set match structure ##########################################################
 
 	@@@ ruby
 	class RepeaterHub < Trema::Controller
