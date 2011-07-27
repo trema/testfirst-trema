@@ -1,7 +1,10 @@
 !SLIDE center
-# Trema チュートリアル ##############################################################
+# Trema Tutorial ###############################################################
+## Test-first openflow programming with Trema
 
-## Yasuhito Takamiya
+<br />
+
+## Yasuhito TAKAMIYA
 ## @yasuhito
 
 <br />
@@ -14,95 +17,70 @@
 ![Trema logo](trema.png)
 
 
-!SLIDE center
-# Trema チュートリアル ##############################################################
+!SLIDE bullets incremental small
+# My personal CV  ##############################################################
 
-## Yasuhito Takamiya
-## @yasuhito
-
-<br />
-
-## 6/9/2011
-
-<br />
-<br />
-
-![Debu](debu.png)
-
-
-!SLIDE full-page-image
-
-![GitHub](github_screenshot.png "GitHub")
-
-
-!SLIDE full-page-image
-
-![Twitter](twitter.png "Twitter")
+* Many years of exeperience in HPC and middleware (Satoshi MATSUOKA Lab. @ Tokyo Tech)
+* Keywords: MPI, Cluster, Grid, Cloud, Super Computing, Top500, TSUBAME @ Tokyo Tech
+* Interests: Programming systems, agile and software testing in Ruby and C
+* Only a few months of experience in OpenFlow (Trema)
 
 
 !SLIDE bullets incremental small
-# 自己紹介: 過去のプロジェクト #########################################################
+# Today's Goal #################################################################
 
-* クラスタ (Presto series @ 東工大)
-* グリッド (InTrigger @ 東大、京大、早稲田、慶應 etc.)
-* スパコン (TSUBAME 1 @ 東工大)
-* Parakeet (distributed checkpointing of MPI)
-* Dolly+ (disk network cloning tool)
-* Lucie (cluster network installer)
-* BareMetalCloud (PaaS without virtualization)
+## Introduction to Trema with hands-on session
+
+* How to develop in Trema
+* Designing, testing and debugging using Trema framework
+* <b>"Differences with NOX, Beacon and others?"</b>
 
 
 !SLIDE bullets incremental small
-# 今日のゴール ####################################################################
-
-## - リピータハブを作りながら Trema フレームワークを紹介 -
-
-* Trema での開発の進めかた
-* テストやデバッグの方法
-* アーキテクチャとデザイン
-* <b>NOX や Beacon とどこが違うか？ を重点的に説明</b>
-
-
-!SLIDE
 # Why Trema? ###################################################################
 
-
-!SLIDE bullets small
-# OpenFlow 開発の大変さ ###########################################################
-
-* そもそも実行環境を作るのが大変
-* たくさんのスイッチ、ホスト、ケーブルをセットアップ
-* → 開発マシン一台でできないか？ (e.g., mininet)
-* → Trema も mininet に似たエミュレーション環境を提供
+* ... because we use C and Ruby
+* (NOX = C++, Beacon = Java)
+* This is the main reason!
 
 
 !SLIDE bullets small
-# Network エミュレーション ############################################################
+# Difficulties of OpenFlow development #########################################
 
-* 仮想実行環境を開発マシンの一台の上に構築可能
-* 仮想スイッチ: Open vSwitch
-* 仮想ホスト: phost (pseudo host)
-* 仮想リンク: vlink (ip command)
-* Ruby による言語内 DSL で記述可能
+* Hard to setup execution environments
+* (Lots of hardware switches, hosts, and cables...)
+* => Development environment in a box? (e.g., mininet)
+* => Trema offers a similar emulation environment (described later)
+
+
+!SLIDE bullets small
+# Network emulation ############################################################
+
+* Emulated execution environment in your laptop based on:
+* virtual switches: Open vSwitch
+* virtual hosts: phost (pseudo host)
+* virtual links: vlink (ip command of Linux)
+
+## You can construct your own topology using Ruby DSL
 
 
 !SLIDE bullets small
 # Network DSL ##################################################################
 
 	@@@ ruby
-	# 仮想スイッチ
+	# virtual switches
 	vswitch("switch1") { datapath_id "0x1" }
 	vswitch("switch2") { datapath_id "0x2" }
 	vswitch("switch3") { datapath_id "0x3" }
 	vswitch("switch4") { datapath_id "0x4" }
 
-	# 仮想ホスト
+	# virtual hosts
 	vhost("host1")
 	vhost("host2")
 	vhost("host3")
 	vhost("host4")
 	
-	# 仮想リンク
+	# virtual links
 	link "switch1", "host1"
 	link "switch2", "host2"
 	link "switch3", "host3"
@@ -113,49 +91,59 @@
 
 
 !SLIDE small
-# OpenFlow == 分散プログラミング #####################################################
+# Another difficulty of OpenFlow ###############################################
+
+<br/>
+<br/>
+
+# <i>"OpenFlow programming</i>
+# <i>==</i>
+# <i>Distributed programming"</i>
 
 
 !SLIDE full-page-image
 
-![ごちゃごちゃネットワーク](network_mess.png "ごちゃごちゃネットワーク")
+![Network Mess](network_mess.png "Network Mess")
 
 
 !SLIDE bullets small incremental
-# OpenFlow == 分散プログラミング #####################################################
+# OpenFlow == Distributed programming ##########################################
 
-* たくさんのスイッチ、ホスト、リンク
-* それぞれがステート (フローテーブル、統計情報 etc.) を持ち、
-* それぞれの間で複雑な通信が起こる分散プログラミング
-* <b>→ テスト無しでは開発が大変</b>
+* Lots of switches, hosts, and links where
+* each runs in its own memory space (in a separate hardware or a process),
+* while changing its own state (flow table, stats etc.),
+* and communicating intricately each other
+* <b>=> Need an aid from programming frameworks and tools!</b>
 
 
 !SLIDE small
-# Trema テストフレームワーク ###########################################################
+# Trema test framework #########################################################
 
 
 !SLIDE full-page-image
 
-![Trema フレームワーク](trema_framework.png "Trema フレームワーク")
+![Trema framework](trema_framework.png "Trema framework")
 
 
 !SLIDE bullets small
-# テストフレームワーク (Ruby only) #####################################################
+# Test framework (Ruby only) ###################################################
 
-* ネットワーク構成とコントローラのテストを Ruby で記述可能
-* ネットワーク環境の setup/teardown
-* スイッチやホストのアサーションとエクスペクテーション
-* リンクダウン、ノード故障などの fault injection
+* Write network environment and controller test using Ruby
+* Setup and teardown of network envrionment
+* Assertions and expectations over switches, hosts and your controller
+* Fault injection such as intentional link-down, latencies and packet-drops etc.
 
 
 !SLIDE bullets small
-# テストコードの例 ##################################################################
+# Test code example ############################################################
 
 	@@@ ruby
-	# テスト例: MyController コントローラのユニットテスト
-	# パケットが届くとコントローラの packet_in ハンドラが呼ばれることをテスト
+	# Test example: A unittest of MyController controller
+	#
+	#   The following tests that contoller's packet_in handler
+	#   is invoked when a packet is arrived.
 	
-	network { # 環境のセットアップ
+	network { # Setup test environment
 	  vswitch("switch") { datapath_id "0xabc" }
 	
 	  vhost("host1")
@@ -163,19 +151,19 @@
 
 	  link "switch", "host1"
 	  link "switch", "host2"
-	}.run(MyController) { # テストの実行
-	  # エクスペクテーション
+	}.run(MyController) { # Run tests
+	  # Expectation over the controller
 	  controller.should_receive(:packet_in)
 	
-	  # テストパケットの送信
+	  # Send a test packet
 	  send_packets "host1", "host2"
 	}
 
 
 !SLIDE bullets small
-# 特徴のまとめ #####################################################################
+# Features summary #############################################################
 
-## エミュレータとテストフレームワークを Ruby で統合することにより
-## "普通" のユニットテスト技法
-## (スタブ、モック、エクスペクテーション etc.)
-## を OpenFlow (== 分散プログラミング) に適用できる
+## The integration of network emulation and test framework
+## using Ruby enables developers to apply "well-known"
+## testing techniques such as mocks, stubs and expectations
+## to OpenFlow programming (== distributed programming).
