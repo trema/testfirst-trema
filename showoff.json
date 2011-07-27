@@ -1,0 +1,15 @@
+{
+  "name": "Test-First Trema",
+  "description": "How-to develop Trema applications in TDD",
+  "sections": [
+    { "section" : "intro" },
+    { "section" : "build" },
+    { "section" : "design" },
+    { "section" : "iteration1" },
+    { "section" : "iteration2" },
+    { "section" : "iteration3" },
+    { "section" : "iteration4" },
+    { "section" : "iteration5" },
+    { "section" : "summary" }
+  ]
+}

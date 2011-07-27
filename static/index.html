@@ -1,0 +1,859 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Test-First Trema</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/styles.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content center" ref="intro/intro/1">
+<h1>Trema &#x30C1;&#x30E5;&#x30FC;&#x30C8;&#x30EA;&#x30A2;&#x30EB;</h1>
+
+<br/>
+
+
+<h2>&#x9AD8;&#x5BAE; &#x5B89;&#x4EC1;</h2>
+
+<h2>@yasuhito</h2>
+
+<h2>2011 &#x5E74; 6 &#x6708; 9 &#x65E5;</h2>
+
+<br/>
+
+
+<p><img src="./file/intro/trema.png" width="136" height="110" alt="Trema logo"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental small" ref="intro/intro/2">
+<h1>&#x81EA;&#x5DF1;&#x7D39;&#x4ECB;</h1>
+
+<ul>
+<li>&#x9AD8;&#x5BAE; &#x5B89;&#x4EC1; (&#x305F;&#x304B;&#x307F;&#x3084; &#x3084;&#x3059;&#x3072;&#x3068;)</li>
+<li>HPC, &#x30AF;&#x30E9;&#x30B9;&#x30BF;&#x3001;&#x30AF;&#x30E9;&#x30A6;&#x30C9; (TSUBAME 1 @ &#x6771;&#x5DE5;&#x5927;&#x3001;InTrigger etc.)</li>
+<li>Open Source: <a href="https://github.com/yasuhito/Lucie">Lucie</a> cluster installer, <a href="http://corvus.kek.jp/~manabe/pcf/dolly/index_J.htm">Dolly+</a> disk cloning tool etc.</li>
+<li>OpenFlow &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF; <a href="https://github.com/trema/trema">Trema</a></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental small" ref="intro/intro/3">
+<h1>&#x4ECA;&#x65E5;&#x306E;&#x30B4;&#x30FC;&#x30EB;</h1>
+
+<h2>"&#x30EA;&#x30D4;&#x30FC;&#x30BF;&#x30CF;&#x30D6;&#x3092;&#x4F5C;&#x308A;&#x306A;&#x304C;&#x3089; Trema &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;&#x3092;&#x307E;&#x306A;&#x3076;"</h2>
+
+<ul>
+<li>Trema &#x3067;&#x306E;&#x958B;&#x767A;&#x306E;&#x9032;&#x3081;&#x304B;&#x305F;</li>
+<li>&#x30C6;&#x30B9;&#x30C8;&#x3084;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x306E;&#x65B9;&#x6CD5;</li>
+<li>&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x3068;&#x30C7;&#x30B6;&#x30A4;&#x30F3;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/intro/4">
+<h1>Why Trema?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="intro/intro/5">
+<p><img src="./file/intro/network_mess.png" width="2592" height="1936" title="&#x3054;&#x3061;&#x3083;&#x3054;&#x3061;&#x3083;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;" alt="&#x3054;&#x3061;&#x3083;&#x3054;&#x3061;&#x3083;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="intro/intro/6">
+<h1>Why Trema?</h1>
+
+<ul>
+<li>OpenFlow &#x306E;&#x958B;&#x767A;&#x306F;&#x74B0;&#x5883;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x304C;&#x7169;&#x96D1;</li>
+<li>&#x767B;&#x5834;&#x4EBA;&#x7269;&#x304C;&#x591A;&#x3044; (&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x3001;&#x30DB;&#x30B9;&#x30C8;&#x3001;&#x30EA;&#x30F3;&#x30AF;)</li>
+<li>&#x305D;&#x308C;&#x305E;&#x308C;&#x304C;&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x3092;&#x6301;&#x3061;&#x3001;</li>
+<li>&#x305D;&#x308C;&#x3089;&#x306E;&#x9593;&#x3067;&#x8907;&#x96D1;&#x306A;&#x901A;&#x4FE1;&#x304C;&#x8D77;&#x3053;&#x308B;&#x5206;&#x6563;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;</li>
+<li><b>&#x2192; &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;&#x7121;&#x3057;&#x3067;&#x306F;&#x958B;&#x767A;&#x304C;&#x5927;&#x5909;</b></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/intro/7">
+<h1>Trema &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="intro/intro/8">
+<p><img src="./file/intro/trema_framework.png" width="2592" height="1936" title="Trema &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;" alt="Trema &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="intro/intro/9">
+<h1>Network &#x30A8;&#x30DF;&#x30E5;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;</h1>
+
+<ul>
+<li>&#x4EEE;&#x60F3;&#x5B9F;&#x884C;&#x74B0;&#x5883;&#x3092;&#x958B;&#x767A;&#x30DE;&#x30B7;&#x30F3;&#x306E;&#x4E00;&#x53F0;&#x306E;&#x4E0A;&#x306B;&#x69CB;&#x7BC9;&#x53EF;&#x80FD;</li>
+<li>&#x4EEE;&#x60F3;&#x30B9;&#x30A4;&#x30C3;&#x30C1;: Open vSwitch</li>
+<li>&#x4EEE;&#x60F3;&#x30DB;&#x30B9;&#x30C8;: phost (pseudo host)</li>
+<li>&#x4EEE;&#x60F3;&#x30EA;&#x30F3;&#x30AF;: vlink (ip command)</li>
+<li>&#x3059;&#x3079;&#x3066;&#x3092; Ruby &#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x30E9;&#x30C3;&#x30D7;&#x3057;&#x3001;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x304B;&#x3089;&#x5236;&#x5FA1;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="intro/intro/10">
+<h1>Network DSL</h1>
+
+<pre class="sh_ruby"><code>vswitch("switch1") { datapath_id "0x1" }
+vswitch("switch2") { datapath_id "0x2" }
+vswitch("switch3") { datapath_id "0x3" }
+vswitch("switch4") { datapath_id "0x4" }
+
+vhost("host1")
+vhost("host2")
+vhost("host3")
+vhost("host4")
+
+link "switch1", "host1"
+link "switch2", "host2"
+link "switch3", "host3"
+link "switch4", "host4"
+link "switch1", "switch2"
+link "switch2", "switch3"
+link "switch3", "switch4"</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="intro/intro/11">
+<h1>&#x30C6;&#x30B9;&#x30C8;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8; (Ruby only)</h1>
+
+<ul>
+<li>&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x8A18;&#x8FF0;</li>
+<li>&#x30C6;&#x30B9;&#x30C8;&#x7528;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;&#x74B0;&#x5883;&#x306E; setup/teardown</li>
+<li>&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x3084;&#x30DB;&#x30B9;&#x30C8;&#x306E;&#x30A2;&#x30B5;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3068;&#x30A8;&#x30AF;&#x30B9;&#x30DA;&#x30AF;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="intro/intro/12">
+<h1>&#x30C6;&#x30B9;&#x30C8;&#x306E;&#x4F8B;</h1>
+
+<pre class="sh_ruby"><code># &#x30C6;&#x30B9;&#x30C8;&#x4F8B;: MyController &#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x306E;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;
+
+network { # &#x30A8;&#x30DF;&#x30E5;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x74B0;&#x5883;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;
+  vswitch("switch") { datapath_id "0xabc" }
+
+  vhost("host1")
+  vhost("host2")
+
+  link "switch", "host1"
+  link "switch", "host2"
+}.run(MyController) { # &#x30C6;&#x30B9;&#x30C8;&#x306E;&#x5B9F;&#x884C;
+  # &#x30A8;&#x30AF;&#x30B9;&#x30DA;&#x30AF;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;
+  controller.should_receive(:packet_in)
+
+  # &#x30C6;&#x30B9;&#x30C8;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x306E;&#x9001;&#x4FE1;
+  send_packets "host1", "host2"
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="intro/intro/13">
+<h1>&#x7279;&#x5FB4;&#x306E;&#x307E;&#x3068;&#x3081;</h1>
+
+<ul>
+<li>&#x30A8;&#x30DF;&#x30E5;&#x30EC;&#x30FC;&#x30BF;&#x3068;&#x30C6;&#x30B9;&#x30C8;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;&#x306E;&#x7D71;&#x5408;&#x306B;&#x3088;&#x308A;&#x3001;</li>
+<li>"&#x666E;&#x901A;" &#x306E;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x6280;&#x6CD5;</li>
+<li>(&#x30B9;&#x30BF;&#x30D6;&#x3001;&#x30E2;&#x30C3;&#x30AF;&#x3001;&#x30A8;&#x30AF;&#x30B9;&#x30DA;&#x30AF;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3; etc.)</li>
+<li>&#x3092;&#x5206;&#x6563;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0; (OpenFlow) &#x306B;&#x9069;&#x7528;&#x3067;&#x304D;&#x308B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/intro/14">
+<h2>&#x300C;&#x3055;&#x3063;&#x305D;&#x304F; Trema &#x3067;&#x4F55;&#x304B;&#x4F5C;&#x3063;&#x3066;&#x307F;&#x3088;&#x3046;&#x300D;</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="intro/intro/15">
+<h1>&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ git clone git://github.com/trema/trema</code><code class="result">
+</code><code class="command">$ ./trema/build.rb</code><code class="result">
+  (There is no Step Three!!)</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content master" ref="design/design/1">
+<h1>&#x30EA;&#x30D4;&#x30FC;&#x30BF;&#x30CF;&#x30D6;&#x306E;&#x30C7;&#x30B6;&#x30A4;&#x30F3;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="design/design/2">
+<p><img src="./file/design/sequence.jpg" width="3507" height="2480" title="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;" alt="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="design/design/3">
+<h1>&#x5206;&#x6790;</h1>
+
+<ul>
+<li>&#x52D5;&#x4F5C;&#x30C6;&#x30B9;&#x30C8;&#x306B;&#x306F;&#x30B9;&#x30A4;&#x30C3;&#x30C1; 1 &#x53F0;&#x3068;&#x6700;&#x4F4E;&#x30DB;&#x30B9;&#x30C8; 3 &#x53F0;&#x304C;&#x5FC5;&#x8981;</li>
+<li><p>&#x2192; &#x3069;&#x3046;&#x3084;&#x3063;&#x3066;&#x3001;&#x30C6;&#x30B9;&#x30C8;&#x74B0;&#x5883;&#x3092;&#x69CB;&#x7BC9;&#x3059;&#x308B;&#xFF1F;</p></li>
+<li><p>&#x30EA;&#x30D4;&#x30FC;&#x30BF;&#x30CF;&#x30D6;&#x306E;&#x3088;&#x3046;&#x306A;&#x5358;&#x7D14;&#x306A;&#x6A5F;&#x80FD;&#x3067;&#x3082;&#x3001;&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x306F;&#x308F;&#x308A;&#x3068;&#x8907;&#x96D1;</p></li>
+<li>&#x2192; &#x3069;&#x3046;&#x3084;&#x3063;&#x3066;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x77E2;&#x5370;&#x3092;&#x30C6;&#x30B9;&#x30C8;&#x3059;&#x308B;&#xFF1F;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="design/design/4">
+<h1>Trema &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;</h1>
+
+<ul>
+<li><b>&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF; DSL</b></li>
+<li>&#x958B;&#x767A;&#x30DE;&#x30B7;&#x30F3;&#x4E0A;&#x306B;&#x30A8;&#x30DF;&#x30E5;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x74B0;&#x5883;&#x3092;&#x4F5C;&#x308C;&#x308B;</li>
+<li><p>&#x3053;&#x306E;&#x4E0A;&#x3067;&#x958B;&#x767A;&#x3057;&#x305F;&#x7269;&#x306F;&#x305D;&#x306E;&#x307E;&#x307E;&#x5B9F;&#x74B0;&#x5883;&#x3078;&#x3082;&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#x53EF;&#x80FD;</p></li>
+<li><p><b>&#x30C6;&#x30B9;&#x30C8;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;</b></p></li>
+<li><p>&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x306E;&#x77E2;&#x5370;&#x304C;&#x6B63;&#x3057;&#x304F;&#x52D5;&#x3044;&#x3066;&#x3044;&#x308B;&#x304B;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x3068;&#x3057;&#x3066;&#x8A18;&#x8FF0;</p></li>
+<li><p><b>Trema Ruby &#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;</b></p></li>
+<li>DSL &#x3084;&#x30C6;&#x30B9;&#x30C8;&#x3001;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x3092;&#x30B7;&#x30FC;&#x30E0;&#x30EC;&#x30B9;&#x306B;&#x7C21;&#x6F54;&#x306B;&#x8A18;&#x8FF0;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="design/design/5">
+<h1>&#x3078;&#x3048;&#x3002;&#x3002;&#x3002;</h1>
+
+<h2>&#x30AA;&#x30EC;&#x3082;&#x305D;&#x308D;&#x305D;&#x308D; 34 &#x3060;&#x3057;</h2>
+
+<h2>Trema &#x3068;&#x3084;&#x3089;&#x3092;&#x306F;&#x3058;&#x3081;&#x3066;&#x307F;&#x308B;&#x304B;&#x3002;&#x3002;&#x3002;</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content master" ref="iteration1/iteration1/1">
+<h1>&#x30A4;&#x30C6;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3; #1</h1>
+
+<h2>"&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F5C;&#x308B;"</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="iteration1/iteration1/2">
+<h1>Trema &#x6700;&#x521D;&#x306E;&#x4E00;&#x6B69;</h1>
+
+<pre class="sh_ruby"><code># &#x30C6;&#x30B9;&#x30C8;&#x7528;&#x30D8;&#x30EB;&#x30D1;&#x30FC;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x8AAD;&#x307F;&#x8FBC;&#x307F;
+require File.join(File.dirname(__FILE__), "spec_helper")
+
+
+describe RepeaterHub do
+  # &#x3053;&#x3053;&#x306B;&#x30EA;&#x30D4;&#x30FC;&#x30BF;&#x30CF;&#x30D6;&#x306E;&#x30B9;&#x30DA;&#x30C3;&#x30AF;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3044;&#x304F;
+  # &#x305D;&#x306E;&#x307E;&#x307E;&#x30C6;&#x30B9;&#x30C8;&#x30B3;&#x30FC;&#x30C9;&#x3068;&#x3057;&#x3066;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;
+end</code></pre>
+
+<ul>
+<li>Ruby &#x306E;&#x30C6;&#x30B9;&#x30C8;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF; <a href="http://relishapp.com/rspec">RSpec</a> &#x3067;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x66F8;&#x304F;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline small" ref="iteration1/iteration1/3">
+<h1>Test First!</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ rspec -fs -c spec/repeater-hub_spec.rb </code><code class="result">
+/home/yasuhito/play/trema/spec/repeater-hub_spec.rb:4: uninitialized constant RepeaterHub (NameError)
+from /var/lib/gems/1.8/gems/rspec-core-2.6.3/lib/rspec/core/configuration.rb:419:in `load'
+from /var/lib/gems/1.8/gems/rspec-core-2.6.3/lib/rspec/core/configuration.rb:419:in `load_spec_files'
+from /var/lib/gems/1.8/gems/rspec-core-2.6.3/lib/rspec/core/configuration.rb:419:in `map'
+from /var/lib/gems/1.8/gems/rspec-core-2.6.3/lib/rspec/core/configuration.rb:419:in `load_spec_files'
+from /var/lib/gems/1.8/gems/rspec-core-2.6.3/lib/rspec/core/command_line.rb:18:in `run'
+  ...
+=&gt; FAIL</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration1/iteration1/4">
+<h1>&#x4FEE;&#x6B63;</h1>
+
+<pre class="sh_ruby"><code>require File.join( File.dirname( __FILE__ ), "spec_helper" )
+
+
+# &#x7A7A;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x5B9A;&#x7FA9;&#x3092;&#x8FFD;&#x52A0;    
+class RepeaterHub
+end
+
+
+describe RepeaterHub do
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="iteration1/iteration1/5">
+<h1>&#x3075;&#x305F;&#x305F;&#x3073;&#x30C6;&#x30B9;&#x30C8;</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ rspec -fs -c spec/repeater-hub_spec.rb </code><code class="result">
+No examples found.
+
+Finished in 0.00003 seconds
+0 examples, 0 failures</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="iteration1/iteration1/6">
+<h1>Why Test First?</h1>
+
+<ul>
+<li>OpenFlow &#x306F;&#x52D5;&#x4F5C;&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x304C;&#x8907;&#x96D1;</li>
+<li>&#x69CB;&#x6210;&#x8981;&#x7D20; (&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x3001;&#x30DB;&#x30B9;&#x30C8;&#x3001;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;) &#x3082;&#x591A;&#x3044;</li>
+<li>&#x3069;&#x3053;&#x3067;&#x4F55;&#x304C;&#x8D77;&#x3053;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x308F;&#x304B;&#x308A;&#x3065;&#x3089;&#x3044;</li>
+<li>&#x2192; &#x305D;&#x3053;&#x3067;&#x3001;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x3054;&#x3068;&#x306E;&#x52D5;&#x4F5C;&#x30C6;&#x30B9;&#x30C8;&#x304C;&#x91CD;&#x8981;</li>
+<li>&#x2192; Trema &#x306F;&#x3053;&#x306E;&#x305F;&#x3081;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;&#x3092;&#x63D0;&#x4F9B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="iteration2/iteration2/1">
+<h1>&#x30A4;&#x30C6;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3; #2</h1>
+
+<h2>"&#x3059;&#x3079;&#x3066;&#x306E;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3092;&#x9001;&#x308B;"</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration2/iteration2/2">
+<h1>&#x3053;&#x306E;&#x30A4;&#x30C6;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x76EE;&#x6A19;</h1>
+
+<h2>&#x3042;&#x308B;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x5C4A;&#x3044;&#x305F;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x304C;&#x4ED6;&#x306E;&#x3059;&#x3079;&#x3066;&#x306E;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x9001;&#x3089;&#x308C;&#x308B;</h2>
+
+<br/>
+
+
+<h2>&#x30C6;&#x30B9;&#x30C8;&#x306B;&#x7FFB;&#x8A33;&#x3059;&#x308B;&#x3068;&#x3001;</h2>
+
+<br/>
+
+
+<br/>
+
+
+<pre class="sh_ruby"><code>describe RepeaterHub do
+  # &#x305D;&#x308C;(RepeaterHub)&#x306F;&#x5C4A;&#x3044;&#x305F;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3092;&#x4ED6;&#x306E;&#x3059;&#x3079;&#x3066;&#x306E;&#x30DD;&#x30FC;&#x30C8;&#x3078;flooding&#x3059;&#x308B;
+  it "should flood incoming packets to every other port" do
+    # &#x4E2D;&#x8EAB;&#x306F;&#x307E;&#x3060;&#x7A7A;
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="iteration2/iteration2/3">
+<h1>&#x30C6;&#x30B9;&#x30C8;</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ rspec -fs -c spec/repeater-hub_spec.rb </code><code class="result">
+
+RepeaterHub
+  should flood incoming packets to every other port
+
+Finished in 0.00028 seconds
+1 example, 0 failures</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="iteration2/iteration2/4">
+<h1>&#x30C6;&#x30B9;&#x30C8;&#x306E;&#x8A73;&#x7D30;&#x5316;</h1>
+
+<ul>
+<li><p><b>"&#x3042;&#x308B;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x5C4A;&#x3044;&#x305F;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x304C;&#x4ED6;&#x306E;&#x3059;&#x3079;&#x3066;&#x306E;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x3082;&#x5C4A;&#x304F;"</b> &#x3068;&#x306F;:</p></li>
+<li><p>&#x30B9;&#x30A4;&#x30C3;&#x30C1; 1 &#x53F0;&#x3001;&#x30DB;&#x30B9;&#x30C8; 3 &#x53F0;&#x304C;&#x3042;&#x3063;&#x305F;&#x3068;&#x304D; (<i>Given</i>)&#x3001;</p></li>
+<li>&#x30DB;&#x30B9;&#x30C8; 1 &#x304C; &#x30DB;&#x30B9;&#x30C8; 2 &#x306B;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3092;&#x9001;&#x308B;&#x3068; (<i>When</i>)&#x3001;</li>
+<li>&#x30DB;&#x30B9;&#x30C8; 2 &#x3068; &#x30DB;&#x30B9;&#x30C8; 3 &#x306B;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x304C;&#x5C4A;&#x304F; (<i>Then</i>)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration2/iteration2/5">
+<h1>Given</h1>
+
+<pre class="sh_ruby"><code>describe RepeaterHub do
+  it "should flood incoming packets to every other port" do
+    network {
+      # &#x30B9;&#x30A4;&#x30C3;&#x30C1; 1 &#x53F0;
+      vswitch("switch") { dpid "0xabc" }
+
+      # &#x30DB;&#x30B9;&#x30C8; 3 &#x53F0;
+      vhost("host1") { promisc "on" }
+      vhost("host2") { promisc "on" }
+      vhost("host3") { promisc "on" }
+
+      # &#x30DB;&#x30B9;&#x30C8;&#x3092;&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x306B;&#x3064;&#x306A;&#x3050;
+      link "switch", "host1"
+      link "switch", "host2"
+      link "switch", "host3"
+    }
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration2/iteration2/6">
+<h1>&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF; DSL</h1>
+
+<pre class="sh_ruby"><code># &#x30A8;&#x30DF;&#x30E5;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x74B0;&#x5883; {...} &#x3092;&#x4F5C;&#x308B;
+network {
+  # &#x4EEE;&#x60F3;&#x30B9;&#x30A4;&#x30C3;&#x30C1;
+  vswitch("&#x540D;&#x524D;") { &#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3; }
+
+  # &#x4EEE;&#x60F3;&#x30DB;&#x30B9;&#x30C8;
+  vhost("&#x540D;&#x524D;") { &#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3; }
+
+  # &#x4EEE;&#x60F3;&#x30EA;&#x30F3;&#x30AF;
+  link "&#x30D4;&#x30A2;#1", "&#x30D4;&#x30A2;#2"
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="iteration2/iteration2/7">
+<h1>&#x30C6;&#x30B9;&#x30C8;</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ rspec -fs -c spec/repeater-hub_spec.rb </code><code class="result">
+
+RepeaterHub
+  should flood incoming packets to every other port
+
+Finished in 0.00244 seconds
+1 example, 0 failures</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="iteration2/iteration2/8">
+<h1>Given, <b>When</b></h1>
+
+<pre class="sh_ruby"><code>describe RepeaterHub do
+  it "should flood incoming packets to every other port" do
+    network {
+      vswitch("switch") { dpid "0xabc" }
+
+      vhost("host1") { promisc "on" }
+      vhost("host2") { promisc "on" }
+      vhost("host3") { promisc "on" }
+
+      link "switch", "host1"
+      link "switch", "host2"
+      link "switch", "host3"
+    }.run(RepeaterHub) {  # RepeaterHub &#x3092;&#x52D5;&#x304B;&#x3059;
+      # host1 &#x304B;&#x3089; host2 &#x306B;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3092;&#x9001;&#x308B;
+      send_packets "host1", "host2"
+    }
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration2/iteration2/9">
+<h1>&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF; DSL</h1>
+
+<pre class="sh_ruby"><code># &#x30A8;&#x30DF;&#x30E5;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x74B0;&#x5883;&#x4E0A;&#x3067;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9; (ControllerClass) &#x3092;&#x8D77;&#x52D5;&#x3057;
+# &#x30C6;&#x30B9;&#x30C8;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5B9F;&#x884C;
+network {
+  ...
+}.run(ControllerClass) {
+  # &#x30C6;&#x30B9;&#x30C8;&#x30B3;&#x30FC;&#x30C9;
+  # &#x30C6;&#x30B9;&#x30C8;&#x30B3;&#x30FC;&#x30C9;
+  # &#x30C6;&#x30B9;&#x30C8;&#x30B3;&#x30FC;&#x30C9;
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline small" ref="iteration2/iteration2/10">
+<h1>&#x30C6;&#x30B9;&#x30C8;</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ rspec -fs -c spec/repeater-hub_spec.rb </code><code class="result">
+
+RepeaterHub
+  should flood incoming packets to every other port (FAILED - 1)
+
+Failures:
+
+  1) RepeaterHub should flood incoming packets to every other port
+     Failure/Error: network {
+     RuntimeError:
+       RepeaterHub is not a subclass of Trema::Controller
+     # ./spec/repeater-hub_spec.rb:11
+
+Finished in 0.07034 seconds
+1 example, 1 failure</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration2/iteration2/11">
+<h1>&#x4FEE;&#x6B63;</h1>
+
+<pre class="sh_ruby"><code># Trema::Controller &#x30AF;&#x30E9;&#x30B9;&#x3092;&#x7D99;&#x627F;  
+class RepeaterHub &lt; Trema::Controller
+end
+
+
+describe RepeaterHub do
+  it "should flood incoming packets to every other port" do
+    network {
+      vswitch("switch") { dpid "0xabc" }
+
+      vhost("host1") { promisc "on" }
+      vhost("host2") { promisc "on" }
+      vhost("host3") { promisc "on" }
+
+      link "switch", "host1"
+      link "switch", "host2"
+      link "switch", "host3"
+    }.run(RepeaterHub) {
+      send_packets "host1", "host2"
+    }
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="iteration2/iteration2/12">
+<h1>Given, When, <b>Then</b></h1>
+
+<pre class="sh_ruby"><code>describe RepeaterHub do
+  it "should flood incoming packets to every other port" do
+    network {
+      vswitch("switch") { dpid "0xabc" }
+
+      vhost("host1") { promisc "on" }
+      vhost("host2") { promisc "on" }
+      vhost("host3") { promisc "on" }
+
+      link "switch", "host1"
+      link "switch", "host2"
+      link "switch", "host3"
+    }.run(RepeaterHub) {
+      send_packets "host1", "host2"
+
+      # host2 &#x3068; host3 &#x304C;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3092; 1 &#x3064;&#x305A;&#x3064;&#x53D7;&#x3051;&#x53D6;&#x308B;
+      vhost("host2").stats(:rx).should have(1).packets
+      vhost("host3").stats(:rx).should have(1).packets
+    }
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline small" ref="iteration2/iteration2/13">
+<h1>FAIL!</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ rspec -fs -c spec/repeater-hub_spec.rb </code><code class="result">
+
+RepeaterHub
+  should flood incoming packets to every other port (FAILED - 1)
+
+Failures:
+
+  1) RepeaterHub should flood incoming packets to every other port
+     Failure/Error: vhost("host2").stats(:rx).should have( 1 ).packets
+       expected 1 packets, got 0
+     # ./spec/repeater-hub_spec.rb:24
+
+Finished in 4.18 seconds
+1 example, 1 failure</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="iteration2/iteration2/14">
+<h1>&#x8A08;&#x753B;&#x306E;&#x4FEE;&#x6B63;</h1>
+
+<ul>
+<li>...&#x8A70;&#x307E;&#x3063;&#x305F;</li>
+<li>&#x6B21;&#x3069;&#x3046;&#x3059;&#x308C;&#x3070;&#x3044;&#x3044;&#x304B;&#x308F;&#x304B;&#x3089;&#x306A;&#x3044;</li>
+<li>&#x2192; &#x3084;&#x3063;&#x3071;&#x308A;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x306B;&#x5206;&#x3051;&#x3066;&#x9806;&#x306B;&#x5B9F;&#x88C5;&#x3057;&#x3088;&#x3046;</li>
+<li>&#x2192; &#x3068;&#x308A;&#x3042;&#x3048;&#x305A;&#x3053;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x306F; pending &#x306B;&#x3059;&#x308B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="iteration2/iteration2/15">
+<h1>Pending</h1>
+
+<pre class="sh_ruby"><code>describe RepeaterHub do
+  it "should flood incoming packets to every other port" do
+    network {
+      vswitch("switch") { dpid "0xabc" }
+
+      vhost("host1") { promisc "on" }
+      vhost("host2") { promisc "on" }
+      vhost("host3") { promisc "on" }
+
+      link "switch", "host1"
+      link "switch", "host2"
+      link "switch", "host3"
+    }.run(RepeaterHub) {
+      send_packets "host1", "host2"
+
+      pending( "&#x3042;&#x3068;&#x3067;&#x5B9F;&#x88C5;&#x3059;&#x308B;" )
+
+      vhost("host2").stats(:rx).should have(1).packets
+      vhost("host3").stats(:rx).should have(1).packets
+    }
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline small" ref="iteration2/iteration2/16">
+<h1>&#x3042;&#x3068;&#x307E;&#x308F;&#x3057;</h1>
+
+<pre class="sh_commandline"><code><code class="command">$ rspec -fs -c spec/repeater-hub_spec.rb </code><code class="result">
+
+RepeaterHub
+  should flood incoming packets to every other port (PENDING: &#x3042;&#x3068;&#x3067;&#x5B9F;&#x88C5;&#x3059;&#x308B;)
+
+Pending:
+  RepeaterHub should flood incoming packets to every other port
+    # &#x3042;&#x3068;&#x3067;&#x5B9F;&#x88C5;&#x3059;&#x308B;
+    # ./spec/repeater-hub_spec.rb:10
+
+Finished in 3.99 seconds
+1 example, 0 failures, 1 pending</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration2/iteration2/17">
+<p><img src="./file/iteration2/sequence.jpg" width="3507" height="2480" title="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;" alt="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content master" ref="iteration3/iteration3/1">
+<h1>&#x30A4;&#x30C6;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3; #3</h1>
+
+<h2>"Packet-in"</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration3/iteration3/2">
+<p><img src="./file/iteration3/todo.jpg" width="3507" height="2480" title="TODO" alt="TODO"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="iteration3/iteration3/3">
+<h1>&#x30C6;&#x30B9;&#x30C8;&#x306E;&#x6574;&#x7406;</h1>
+
+<ul>
+<li>&#x30B9;&#x30A4;&#x30C3;&#x30C1; 1 &#x53F0;&#x3001;&#x30DB;&#x30B9;&#x30C8; 3 &#x53F0;&#x304C;&#x3042;&#x3063;&#x305F;&#x3068;&#x304D; (<i>Given</i>)&#x3001;</li>
+<li>&#x30DB;&#x30B9;&#x30C8; 1 &#x304C; &#x30DB;&#x30B9;&#x30C8; 2 &#x306B;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3092;&#x9001;&#x308B;&#x3068; (<i>When</i>)&#x3001;</li>
+<li>&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x306B;&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x304B;&#x3089;&#x306E; packet_in &#x304C;&#x5C4A;&#x304F; (<i>Then</i>)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="iteration3/iteration3/4">
+<h1>Expectation</h1>
+
+<pre class="sh_ruby"><code>describe RepeaterHub do
+  it "should flood incoming packets to every other port" do
+    network {
+      vswitch("switch") { dpid "0xabc" }
+
+      vhost("host1") { promisc "on" }
+      vhost("host2") { promisc "on" }
+      vhost("host3") { promisc "on" }
+
+      link "switch", "host1"
+      link "switch", "host2"
+      link "switch", "host3"
+    }.run(RepeaterHub) {
+      # &#x30B9;&#x30A4;&#x30C3;&#x30C1; 0xabc &#x304B;&#x3089; packet_in &#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;&#x4E00;&#x5EA6;&#x3060;&#x3051;&#x5C4A;&#x304F;&#x306F;&#x305A;
+      controller("RepeaterHub").should_receive(:packet_in).with do |m|
+        m.datapath_id.should == 0xabc
+      end
+
+      send_packets "host1", "host2"
+    }
+  end
+end
+
+# =&gt; SUCCESS</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="iteration3/iteration3/5">
+<h1>Don't Repeat Yourself</h1>
+
+<pre class="sh_ruby"><code>describe RepeaterHub do
+  around do |example|  # &#x5171;&#x901A;&#x51E6;&#x7406;&#x3092;&#x3053;&#x3053;&#x306B;&#x66F8;&#x304F;
+    network {
+      ...
+    }.run(RepeaterHub) {
+      example.run  # &#x30C6;&#x30B9;&#x30C8;&#x306E;&#x5B9F;&#x884C;
+    }
+  end
+
+  context "when host1 sends one packet to host2" do
+    it "should #packet_in" do
+      controller("RepeaterHub").should_receive(:packet_in).with do |m|
+        m.datapath_id.should == 0xabc
+      end
+
+      send_packets "host1", "host2"
+    end
+
+    it "should flood incoming packets to every other port" do
+      send_packets "host1", "host2"
+
+      pending( "&#x3042;&#x3068;&#x3067;&#x5B9F;&#x88C5;&#x3059;&#x308B;" )
+      vhost("host2").stats(:rx).should have(1).packets
+      vhost("host3").stats(:rx).should have(1).packets
+    end
+  end
+
+# =&gt; SUCCESS</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration3/iteration3/6">
+<p><img src="./file/iteration3/todo1.jpg" width="3507" height="2480" title="TODO" alt="TODO"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration3/iteration3/7">
+<p><img src="./file/iteration3/sequence.jpg" width="3507" height="2480" title="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;" alt="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content master" ref="iteration4/iteration4/1">
+<h1>&#x30A4;&#x30C6;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3; #4</h1>
+
+<h2>"Flow-mod"</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration4/iteration4/2">
+<p><img src="./file/iteration4/todo.jpg" width="3507" height="2480" title="TODO" alt="TODO"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="iteration4/iteration4/3">
+<h1>&#x300C;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x306F; flow-mod &#x3092;&#x9001;&#x308B;&#x300D; &#x306F;&#x305A;?</h1>
+
+<pre class="sh_ruby"><code>it "should #send_flow_mod_add" do
+  controller("RepeaterHub").should_receive(:send_flow_mod_add).with do |dpid|
+    dpid.should == 0xabc
+  end
+
+  send_packets "host1", "host2"
+end
+
+# =&gt; FAIL!</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="iteration4/iteration4/4">
+<h1>flow-mod &#x3092;&#x6253;&#x3064;</h1>
+
+<pre class="sh_ruby"><code>class RepeaterHub &lt; Trema::Controller
+  def packet_in message
+    send_flow_mod_add message.datapath_id
+  end
+end
+
+# =&gt; SUCCESS</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration4/iteration4/5">
+<h1>&#x30D5;&#x30ED;&#x30FC;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x6570;&#x3092;&#x78BA;&#x8A8D;</h1>
+
+<pre class="sh_ruby"><code>describe "switch" do
+  it "should have one flow entry" do
+    send_packets "host1", "host2"
+
+    switch("switch").should have(1).flows
+  end
+end
+
+# =&gt; SUCCESS</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration4/iteration4/6">
+<h1>&#x30D5;&#x30ED;&#x30FC;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x306E;&#x4E2D;&#x8EAB;&#x3092;&#x78BA;&#x8A8D;</h1>
+
+<pre class="sh_ruby"><code>describe "switch" do
+  it "should have one flow entry" do
+    send_packets "host1", "host2"
+
+    switch("switch").should have(1).flows
+    switch("switch").flows.first.actions.should == "FLOOD"
+  end
+end
+
+# =&gt; FAIL!</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration4/iteration4/7">
+<h1>&#x3061;&#x3083;&#x3093;&#x3068; flow_mod &#x3092;&#x6253;&#x3064;</h1>
+
+<pre class="sh_ruby"><code>def packet_in message
+  send_flow_mod_add(
+    message.datapath_id,
+    # &#x30DE;&#x30C3;&#x30C1;&#x3001;&#x30D0;&#x30C3;&#x30D5;&#x30A1; ID&#x3001;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x6307;&#x5B9A;
+    :match =&gt; Match.from(message),
+    :buffer_id =&gt; message.buffer_id,
+    :actions =&gt; ActionOutput.new(OFPP_FLOOD)
+  )
+end
+
+# =&gt; SUCCESS</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration4/iteration4/8">
+<p><img src="./file/iteration4/todo1.jpg" width="3507" height="2480" title="TODO" alt="TODO"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration4/iteration4/9">
+<p><img src="./file/iteration4/sequence.jpg" width="3507" height="2480" title="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;" alt="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content master" ref="iteration5/iteration5/1">
+<h1>&#x30A4;&#x30C6;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3; #5</h1>
+
+<h2>"Packet-out"</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="iteration5/iteration5/2">
+<h1>&#x5B9B;&#x5148;&#x306B;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x304C;&#x5C4A;&#x3044;&#x3066;&#x308B;&#x304B;&#xFF1F;</h1>
+
+<h2>pending &#x306B;&#x3057;&#x3066;&#x3044;&#x305F;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x5FA9;&#x6D3B;</h2>
+
+<pre class="sh_ruby"><code>describe "host" do
+  it "should receive packets" do
+    send_packets "host1", "host2"
+
+    vhost("host2").stats(:rx).should have(1).packets
+    vhost("host3").stats(:rx).should have(1).packets
+  end
+end
+
+# =&gt; FAIL!</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="iteration5/iteration5/3">
+<h1>&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x30A2;&#x30A6;&#x30C8;&#x3057;&#x3088;&#x3046;</h1>
+
+<pre class="sh_ruby"><code>class RepeaterHub &lt; Trema::Controller
+  def packet_in message
+    send_flow_mod_add(
+      message.datapath_id,
+      :match =&gt; Match.from(message),
+      :buffer_id =&gt; message.buffer_id,
+      :actions =&gt; ActionOutput.new(OFPP_FLOOD)
+    )
+    # &#x8FFD;&#x52A0;
+    send_packet_out(
+      message.datapath_id,
+      message.buffer_id,
+      message.in_port,
+      ActionOutput.new(OFPP_FLOOD),
+      message.data
+    )
+  end
+end
+
+# =&gt; SUCCESS</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration5/iteration5/4">
+<p><img src="./file/iteration5/todo.jpg" width="3507" height="2480" title="TODO" alt="TODO"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content full-page-image" ref="iteration5/iteration5/5">
+<p><img src="./file/iteration5/sequence.jpg" width="3507" height="2480" title="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;" alt="&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content master" ref="iteration5/iteration5/6">
+<h1>&#x3067;&#x304D;&#x305F;! (?)</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="summary/summary/1">
+<h1>&#x3084;&#x308A;&#x306E;&#x3053;&#x3057;&#x305F;&#x3053;&#x3068;</h1>
+
+<ul>
+<li>&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x304C;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x3055;&#x308C;&#x3066;&#x308B;&#x3068;&#x304D;&#x306E;&#x51E6;&#x7406;</li>
+<li>&#x4E8C;&#x3064;&#x76EE;&#x4EE5;&#x964D;&#x306E;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3067; packet_in &#x304C;&#x8D77;&#x304D;&#x306A;&#x3044;</li>
+<li>host2 &#x3084; host3 &#x304B;&#x3089;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x6253;&#x3063;&#x305F;&#x5834;&#x5408;</li>
+<li>&#x30D1;&#x30B1;&#x30C3;&#x30C8; 100 &#x767A;&#x6253;&#x3063;&#x3066;&#x5168;&#x90E8;&#x5C4A;&#x304F;&#x304B;</li>
+<li>&#x30D5;&#x30EB;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306F;&#x3053;&#x3061;&#x3089;
+<a href="https://github.com/trema/trema/blob/master/src/examples/repeater_hub/repeater-hub_spec.rb">[trema]/src/examples/repeater_hub/repeater-hub_spec.rb</a></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small incremental" ref="summary/summary/2">
+<h1>&#x307E;&#x3068;&#x3081;</h1>
+
+<ul>
+<li>Trema &#x3059;&#x3054;&#x3044;&#x4FBF;&#x5229;</li>
+<li>&#x958B;&#x767A;&#x30DE;&#x30B7;&#x30F3;&#x4E00;&#x53F0;&#x3067;&#x5168;&#x90E8;&#x3067;&#x304D;&#x308B;</li>
+<li>Ruby &#x3067;&#x3044;&#x308D;&#x3044;&#x308D;&#x3067;&#x304D;&#x308B;&#x3057;</li>
+<li>&#x3059;&#x3054;&#x3044;&#x3059;&#x3054;&#x30FC;&#x3044;</li>
+<li>Great!</li>
+<li>Great! Thanks!</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="summary/summary/3">
+<h1>&#x8CEA;&#x554F;?</h1>
+</div>
+</div></div>
+
+</body>
+</html>
