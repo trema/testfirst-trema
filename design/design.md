@@ -1,37 +1,37 @@
-!SLIDE master
-# リピータハブのデザイン ############################################
+!SLIDE master bullets
+# Design phase #################################################################
+
+* The theme for this tutorial is "repeater-hub"
+* By designing, testing and debugging repeater-hub with Trema, let's go through Trema framework.
 
 
 !SLIDE full-page-image
 
-![シーケンス図](sequence.jpg "シーケンス図")
+![sequence diagram](sequence.jpg "sequence diagram")
 
 
 !SLIDE bullets small incremental
-# 分析 ######################################################
+# Analysis #####################################################################
 
-* 動作テストにはスイッチ 1 台と最低ホスト 3 台が必要
-* → どうやって、テスト環境を構築する？
+* In order to test repeater-hub program, we need one switch and at least three hosts
+* => How can we build a test environment? 
 
-* リピータハブのような単純な機能でも、シーケンスはわりと複雑
-* → どうやって、それぞれの矢印をテストする？
+* The sequence diagram is a bit complex despite the simplicity of repeater-hub functions
+* => How can we test each arrow in the sequence?
 
 
 !SLIDE bullets small incremental
-# Trema フレームワーク ###########################################
+# Trema framework ##############################################################
 
-* <b>ネットワーク DSL</b>
-* 開発マシン上にエミュレーション環境を作れる
-* この上で開発した物はそのまま実環境へもデプロイ可能
+* <b>Network DSL</b>
+* Build emulation envrionments in your laptop and deploy onto real environments
 
-* <b>テストフレームワーク</b>
-* シーケンスの矢印が正しく動いているかユニットテストとして記述
+* <b>Test framework</b>
+* Describe and run unittests of each arrow in execution sequence
 
-* <b>Trema Ruby ライブラリ</b>
-* DSL やテスト、コントローラをシームレスに簡潔に記述
+* <b>Trema Ruby library</b>
+* Write DSL, tests and controller itself briefly and seamlessly
 
 
-!SLIDE
-# へえ。。。
-## オレもそろそろ 34 だし
-## Trema とやらをはじめてみるか。。。
+!SLIDE full-page-image
+![dilbert](dilbert.gif "dilbert")
