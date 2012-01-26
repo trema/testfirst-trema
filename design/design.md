@@ -2,7 +2,7 @@
 # Design phase #################################################################
 
 * The theme for this tutorial is "repeater-hub"
-* By designing, testing and debugging repeater-hub with Trema, let's explore Trema framework.
+* We are going to explore the Trema framework by designing, testing and debugging the repeater-hub program.
 
 
 !SLIDE full-page-image
@@ -14,7 +14,7 @@
 # Analysis #####################################################################
 
 * In order to test repeater-hub program, we need one switch and at least three hosts
-* => How can we build a test environment? 
+* => How can we build such a test environment? 
 
 * The sequence looks surprisingly complex despite the simplicity of repeater-hub functionality (== flooding)
 * => How can we test each arrow in the diagram?
