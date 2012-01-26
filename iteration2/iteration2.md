@@ -98,7 +98,7 @@
 	  end
 	end
 
-## Note that the syntax is fully compatible with Trema network DSL
+## Note that the syntax is fully compatible with Trema's network DSL
 
 
 !SLIDE small
@@ -152,7 +152,7 @@
 	  # link("peer1", "peer2").method
 	}
 
-* Components defined in the network block (vswitch, vhost and link) are wrapped as  Ruby objects in the "When" block.
+* Components defined in the network block (vswitch, vhost and link) are wrapped as Ruby objects in the "When" block.
 * In the "When" block, you can invoke any  method of these wrapped objects
 
 
@@ -303,7 +303,7 @@
 # ... Stuck? ###################################################################
 
 * Let's divide into smaller tests and implement one-by-one
-* For now, mark this test as "pending" and give it the least priority
+* For now, mark this test as "pending" and give it the lowest priority
 
 
 !SLIDE smaller
