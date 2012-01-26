@@ -36,9 +36,9 @@
 	  ...
 	
 	
-	#=> FAIL ("RepeaterHub" is now known)
+	#=> FAIL ("RepeaterHub" is not known)
 
-* No problem, because we did't implement the class yet.
+* No problem, because we haven't implement the class yet.
 * Let's add some code just enough to pass the test.
 
 
@@ -87,7 +87,7 @@
 	  car.should have(4).wheels
 	end
 
-* The de facto standard for unit test framework for Ruby
+* The de facto framework for unit testing in Ruby
 * Used in Rails and other well-known products
 * Human-readable test DSL and its output (explained later)
 
@@ -96,7 +96,7 @@
 !SLIDE bullets small
 # Why Test First? ##############################################################
 
-* OpenFlow programming is complicated, because it's a sort of distributed programming
+* OpenFlow programming is complex, because it's a kind of distributed programming
 * Unit-testing is helpful expecially for such a complicated problem
-* Rubyists love tests and are used to it well
+* Rubyists love tests and they are well accustomed to
 * => Trema offers the OpenFlow extension of RSpec (explained later)
