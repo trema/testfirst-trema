@@ -38,7 +38,7 @@
 	
 	#=> FAIL ("RepeaterHub" is not known)
 
-* No problem, because we haven't implement the class yet.
+* No problem, because we haven't implemented the class yet.
 * Let's add some code just enough to pass the test.
 
 
