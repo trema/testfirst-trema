@@ -334,7 +334,7 @@
 	$ rspec -fs -c spec/repeater-hub_spec.rb 
 	
 	RepeaterHub
-	  should flood incoming packets to every other port (PENDING: あとで実装する)
+	  should flood incoming packets to every other port (PENDING: Implement later)
 	
 	Pending:
 	  RepeaterHub should flood incoming packets to every other port
