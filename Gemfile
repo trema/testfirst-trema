@@ -1,6 +1,3 @@
-source :rubygems
-gem 'bluecloth'
-gem 'nokogiri'
-gem 'showoff'
-gem 'gli'
-gem 'heroku'
+source 'https://rubygems.org'
+
+gem 'showoff', '~> 0.9.7'
